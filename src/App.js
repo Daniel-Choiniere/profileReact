@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class App extends Component {
     state = {
@@ -9,6 +10,14 @@ class App extends Component {
     
     handleCLick = () => {
         console.log(this.state.firstname);
+         axios.get('https://api.lyrics.ovh/v1/coldplay/paradise')
+        .then(res => {
+            // need to grab the data we retrieved and save it to our template
+            console.log(res.data);
+            // this.setState({
+            //     posts: res.data.slice(0, 10)
+            // });
+        });
     }
     
     setFirstName = (e) => {
